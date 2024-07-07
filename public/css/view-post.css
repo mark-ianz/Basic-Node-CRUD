@@ -1,0 +1,94 @@
+.post__container {
+  border-radius: 1em;
+  width: 80vw;
+  max-width: 72em;
+  position: relative;
+  border: solid 1px gray;
+  padding: 1.5em;
+}
+
+.post__info {
+  margin-bottom: 1em;
+}
+
+.post__info--title {
+  font-size: 2.5em;
+}
+
+.post__info--desc {
+  font-size: 1em;
+  margin-top: 1em;
+}
+
+.post__image--container {
+  border: solid 1px gray;
+  display: flex;
+  border-radius: 1em;
+}
+
+.post__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 1em;
+  max-height: 500px;
+  cursor: pointer;
+}
+
+.post__go-back,
+.post__delete--container {
+  position: absolute;
+}
+
+.post__go-back {
+  top: 0em;
+  left: -3em;
+}
+
+.post__delete--container {
+  top: 1.5em;
+  right: 1.5em;
+}
+
+.post__go-back--button,
+.post__delete--button {
+  width: 2em;
+  aspect-ratio: 1/1;
+  border-radius: 1em;
+  border: solid 1px white;
+  cursor: pointer;
+}
+
+/* styling meta */
+.post__meta {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 1em;
+}
+
+.post__meta--author-pf {
+  width: 2em;
+  aspect-ratio: 1/1;
+  margin-right: .5em;
+  border: solid 1px gray;
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 100;
+}
+
+.post__meta--author-name {
+  font-weight: bold;
+  z-index: 100;
+  text-decoration: none;
+  color: inherit;
+}
+.post__meta--date-posted {
+  color: gray;
+}
+
+.post__meta--date-posted::before {
+  content: '•';
+  margin: 0 0 0 .4em;
+}

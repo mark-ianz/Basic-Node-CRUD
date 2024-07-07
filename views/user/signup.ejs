@@ -1,0 +1,73 @@
+<form method="post" action="/signup" class="account__form">
+  <h1>
+    Signup
+  </h1>
+  <div class="account__form--input__wrapper">
+    <label for="username" class="account__form--label">
+      Username:
+    </label>
+    <input type="text" name="username" id="username" class="account__form--input">
+  </div>
+  <div class="account__form--input__wrapper">
+    <label for="email" class="account__form--label">
+      Email:
+    </label>
+    <input type="text" name="email" id="email" class="account__form--input" />
+  </div>
+  <div class="account__form--input__wrapper">
+    <label for="password" class="account__form--label">
+      Password:
+    </label>
+    <input type="password" name="password" id="password" class="account__form--input">
+  </div>
+  <div class="account__form--input__wrapper">
+    <label for="confirm_password" class="account__form--label">
+      Confirm Password:
+    </label>
+    <input type="password" name="confirm_password" id="confirm_password" class="account__form--input">
+  </div>
+  <p class="error-message"></p>
+  <div class="account__form--submit-button">
+    <button type="submit" class="submit-button">
+      Login
+    </button>
+  </div>
+  <div class="account__form--prompt">
+    <p>Already have an account? <a href="/login">Login</a></p>
+  </div>
+</form>
+<script>
+  const formElement = document.querySelector (".account__form");
+  const error_message = document.querySelector (".error-message");
+
+  formElement.addEventListener ('submit', async (e)=> {
+    /* clear error message */
+    error_message.innerText = '';
+    e.preventDefault ();
+
+    const form = new FormData (formElement);
+
+    /* itirate the form and insert the value in the formData */
+    const formData = {}; /* initialize */
+    form.forEach ((value, key)=> {
+      formData [key] = value;
+    })
+
+    try {
+      /* fetch */
+      const response = await fetch ("/signup", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        }, body: JSON.stringify (formData)
+      });
+      const data = await response.json ();
+      data.message ? error_message.innerText = data.message : "";
+      data.redirect ? window.location.href = data.redirect : "";
+    } catch (error) {
+      error_message.innerText = "An error occured while trying to signup. Please try again later.";
+      console.log (error);
+    }
+
+  })
+</script>

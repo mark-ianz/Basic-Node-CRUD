@@ -1,0 +1,68 @@
+<div class="section">
+  <div class="card">
+    <div class="card__user-info__container">
+      <div class="card__img--container">
+        <img
+          src="/img/default-profile.svg"
+          alt="user profile image"
+          class="card__img"
+        />
+      </div>
+      <div class="card__about-user">
+        <div class="card__info--wrapper">
+          <p class="card__username"><%= userData.username %></p>
+        </div>
+      </div>
+      <div class="card__option--wrapper">
+        <button class="card__option--button">
+          <img
+            src="/img/dots-horizontal-svgrepo-com.svg"
+            id="option__button"
+            class="card__option--img"
+            alt="option button"
+            class=""
+          />
+        </button>
+        <div class="card__option--dropdown">
+          <ul class="dropdown__list">
+            <li class="dropdown__list--item">Test</li>
+            <li class="dropdown__list--item">Test</li>
+            <li class="dropdown__list--item">Test</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card__description--container">
+      <p>
+        <%= userData.description ? userData.description : "No description." %>
+      </p>
+    </div>
+  </div>
+  <div class="card">
+    <% if (postData.length > 0) { %>
+      <p>Userposts</p>
+      <% postData.forEach ((post)=> { %> 
+        <%- include ("../partials/postCard.ejs",
+      {post}) %> <% }) %>
+    <% } else { %>
+      <p style="text-align: center;"><b><%= userData.username %></b> hasn't created their first post yet.</p>
+    <% } %>
+  </div>
+</div>
+<script>
+  const option_button_element = document.querySelector(".card__option--button");
+  const option_dropdown_element = document.querySelector(
+    ".card__option--dropdown"
+  );
+
+  function handleOptionButton() {
+    if (option_dropdown_element.style.visibility === "hidden") {
+      option_dropdown_element.style.visibility = "visible";
+    } else {
+      option_dropdown_element.style.visibility = "hidden";
+    }
+  }
+  option_button_element.addEventListener("click", (e) => {
+    handleOptionButton();
+  });
+</script>

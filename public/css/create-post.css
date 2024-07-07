@@ -1,0 +1,47 @@
+.create-post__form {
+  border: solid 1px gray;
+  padding: 2em;
+  border-radius: .5em;
+  width: 100%;
+  max-width: 24em;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  gap: .5em;
+}
+
+.form__input--container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin: .7em 0;
+}
+
+.form__input {
+  outline: none;
+  border: none;
+  background:none;
+  border-bottom: solid 1px gray;
+  color: white;
+  padding: .5em .1em;
+  font-size: 1.1em;
+}
+
+.form__label {
+  font-size: 1.3em;
+}
+
+.form__submit--button {
+  padding: .3em 1em;
+  font-size: 1.2em;
+  border-radius: .4em;
+  border: solid 1px gray;
+  background: none;
+  transition: 150ms;
+  cursor: pointer;
+}
+
+.form__submit--button:hover {
+  background: gray;
+}

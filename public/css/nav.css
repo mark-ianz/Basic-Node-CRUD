@@ -1,0 +1,107 @@
+.nav {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  border-bottom: solid 1px gray;
+}
+
+.nav__section--left {
+  display: flex;
+  align-items: center;
+  margin-right: 5em;
+}
+
+.title--link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+.nav__section--right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-grow: 1;
+  max-width: 50em;
+}
+
+.nav__link-container {
+  display: flex;
+  list-style-type: none;
+  padding: 1em 0;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.nav__item {
+  border-bottom: solid 1px;
+  border-bottom-color: rgba(0, 0, 0, 0);
+  transition: 200ms;
+}
+
+.nav__item:hover {
+  border-bottom-color: white;
+  transform: scale(1.10);
+}
+
+.nav__link {
+  color: white;
+  text-decoration: none;
+}
+
+.nav__search-form {
+  padding: .3em;
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  gap: .5em;
+}
+
+.nav__searchbar {
+  outline: none;
+  background: none;
+  border: none;
+  border-bottom: solid 1px white;
+  color: white;
+  padding: .5em .7em;
+  flex-grow: 1;
+}
+
+.nav__searchbar::-webkit-search-cancel-button {
+  display: none;
+}
+
+.nav__search-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: 200ms;
+  padding: .3em;
+  border-radius: 100%;
+  width: 2.5em;
+  aspect-ratio: 1/1;
+  transition: 200ms;
+}
+
+.nav__search-button:hover {
+  background-color: rgba(255, 255, 255, 0.283);
+  transform: scale(1.10);
+}
+
+.nav__search-button:hover .nav__search-button-image {
+  filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0) brightness(0%) contrast(0%);
+}
+
+.nav__search-button-image {
+  width: 1.2em;
+  aspect-ratio: 1/1;
+  transition: 200ms;
+}

@@ -1,0 +1,83 @@
+.container {
+  max-width: 32em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3em 5em;
+  flex-grow: 1;
+} 
+
+
+.main__introduction p {
+  text-align: center;
+  margin: .5em 0;
+}
+
+.main__introduction--title {
+  font-weight: bold;
+  font-size: 1.6em;
+}
+.main__introduction--desc {
+  font-size: 1em;
+}
+.main__logo {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.main__logo--item {
+  margin: 1.2em 1em;
+  position: relative;
+  background-color: white;
+  padding: .5em;
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 200ms;
+}
+
+.main__logo--item:hover {
+  transform: scale(1.15);
+}
+
+.main__logo--item:hover .main__logo--item--tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.main__logo--item:hover .main__logo--img {
+  transform: scale(1.15); /* keep the logo scaled if hovering on tooltip */
+}
+
+.main__logo--img {
+  width: 2.5em;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+  transition: 200ms;
+}
+
+
+.main__logo--item--tooltip {
+  text-align: center;
+  background-color: black;
+  color: white;
+  font-size: 1em;
+  padding: 0.5em;
+  border-radius: 0.3em;
+  position: absolute;
+  top: 5em;
+  width: 14em;
+  transform: translateX(-50%);
+  left: 50%;
+  visibility: hidden;
+  opacity: 0;
+  transition: 100ms;
+  border: solid 1px gray;
+}

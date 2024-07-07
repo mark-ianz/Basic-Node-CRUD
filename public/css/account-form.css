@@ -1,0 +1,83 @@
+.account__form {
+  border: solid 1px gray;
+  padding: 1em;
+  border-radius: .5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90vw;
+  max-width: 24em;
+  font-size: 1.1em;
+}
+
+h1 {
+  margin-bottom: .5em;
+}
+
+.account__form--input__wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: .5em 0 .5em 0;
+}
+
+.account__form--input {
+  outline: none;
+  background: none;
+  border: solid 1px gray;
+  padding: .5em;
+  margin-top: .5em;
+  border-radius: .3em;
+}
+
+.account__form--input:focus {
+  outline: solid 2px gray;
+}
+
+.account__form--label {
+  flex-grow: 1;
+}
+
+.account__form--submit-button {
+  width: 100%;
+}
+
+.account__form--submit-button {
+  margin-top: .5em;
+}
+
+.submit-button {
+  width: 100%;
+  font-size: 1em;
+  padding: .5em;
+  cursor: pointer;
+}
+
+.account__form--show-pw {
+  font-size: .8em;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-end;
+  gap: .5em;
+}
+
+.account__form--show-pw--cb {
+  cursor: pointer;
+}
+
+.account__form--prompt {
+  font-size: .8em;
+  color: gray;
+  margin-top: 1em;
+}
+
+.account__form--prompt a {
+  color: inherit;
+}
+
+.error-message {
+  text-align: center;
+  font-size: .8em;
+  color: rgb(183, 29, 29);
+}

@@ -1,0 +1,58 @@
+<form action="/posts/create" class="create-post__form" method="POST">
+  <p style="font-size: 2em; font-weight: bold; margin-bottom: 0.5em">
+    <%= title %>
+  </p>
+  <div class="form__input--container">
+    <label for="title-input" class="form__label"> Title </label>
+    <input type="text" name="title" id="title-input" class="form__input" />
+  </div>
+  <div class="form__input--container">
+    <label for="desc-input" class="form__label"> Description (Optional) </label>
+    <textarea
+      name="desc"
+      id="desc-input"
+      class="form__input"
+      cols="30"
+      rows="4"
+    ></textarea>
+  </div>
+  <div class="form__input--container">
+    <label for="img-input" class="form__label"> Image (Optional) </label>
+    <input type="file" name="imgURL" id="img-input" class="form__input" />
+  </div>
+  <p class="error-message"></p>
+  <div class="form__submit--container">
+  <button type="submit" class="form__submit--button">Create Post</button>
+  </div>
+</form>
+<script>
+  const formElement = document.querySelector(".create-post__form");
+  const error_message = document.querySelector (".error-message");
+
+  formElement.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const form = new FormData(formElement);
+    const formData = {};
+    form.forEach((value, key) => {
+      formData[key] = value;
+    });
+
+    try {
+      const response = await fetch("/posts/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      data.message ? error_message.innerText = data.message : "";
+      data.redirect ? window.location.href = data.redirect : "";
+    } catch (error) {
+      console.log(error);
+    }
+  });
+</script>

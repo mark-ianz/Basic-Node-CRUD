@@ -1,0 +1,32 @@
+<nav class="nav">
+  <div class="nav__section nav__section--left">
+    <h1 id="title">
+      <a href="/" class="title--link">
+        CRUD
+      </a>
+    </h1>
+  </div>
+  <div class="nav__section nav__section--right">
+    <form action="/posts/search/" method="get" class="nav__search-form">
+      <input type="search" name="q" id="search" class="nav__searchbar" placeholder="Search something...">
+      <button type="submit" class="nav__search-button">
+        <img src="/img/search-button.svg" alt="search-button" class="nav__search-button-image">
+      </button>
+    </form>
+    <ul class="nav__link-container">
+      <li class="nav__item"><a href="/" class="nav__link">Home</a></li>
+      <li class="nav__item"><a href="/posts" class="nav__link">View Posts</a></li>
+      <li class="nav__item"><a href="/posts/create" class="nav__link">Create Post</a></li>
+      <li class="nav__item"><a href="/about" class="nav__link">About</a></li>
+      <li class="nav__item"><a href="/contact" class="nav__link">Contact</a></li>
+      <li class="nav__item"><a href="/profile" class="nav__link">Profile</a></li>
+    </ul>
+    <p>
+      <% if (user) { %>
+        <%= user.username %>
+      <% } %>
+    </p>
+  </div>
+</nav>
+<script>
+</script>

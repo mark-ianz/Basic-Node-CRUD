@@ -1,0 +1,74 @@
+<form method="post" action="/login" class="account__form">
+  <h1>
+    Login
+  </h1>
+  <div class="account__form--input__wrapper">
+    <label for="username" class="account__form--label">
+      Username:
+    </label>
+    <input type="text" name="username" id="username" class="account__form--input">
+  </div>
+  <div class="account__form--input__wrapper">
+    <label for="password" class="account__form--label">
+      Password:
+    </label>
+    <input type="password" name="password" id="password" class="account__form--input">
+  </div>
+  <div class="account__form--show-pw">
+    <label for="show-pw">
+      Show Password
+    </label>
+    <input type="checkbox" name="show-pw" id="show-pw" class="account__form--show-pw--cb">
+  </div>
+  <p class="error-message"></p>
+  <div class="account__form--submit-button">
+    <button type="submit" class="submit-button">
+      Login
+    </button>
+  </div>
+  <div class="account__form--prompt">
+    <p>Don't have an account yet? <a href="/signup">Signup</a></p>
+  </div>
+</form>
+<script>
+  const showpw_cb = document.querySelector ('.account__form--show-pw--cb');
+  const pw_input = document.querySelector ('#password');
+  const error_message = document.querySelector (".error-message");
+  showpw_cb.addEventListener ('click', (e)=> {
+    if (showpw_cb.checked) {
+      pw_input.type = "text";
+    } else {
+      pw_input.type = "password";
+    }
+  });
+
+  const formElement = document.querySelector ('.account__form');
+
+  formElement.addEventListener ('submit', async (e)=> {
+    e.preventDefault ();
+
+    /* clear the error message */
+    error_message.innerText = "";
+
+
+    const form = new FormData (formElement);
+    const username = form.get ('username');
+    const password = form.get ('password');
+
+    try {
+      const response = await fetch ("/login", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      }, body: JSON.stringify ({username, password})
+      });
+      const data = await response.json ();
+      data.message ? error_message.innerText = data.message : "";
+      if (data.redirect) window.location.href = data.redirect;
+    } catch (error) {
+      console.log (error);
+      error_message.innerText = "There was an error while logging in. Please try again later.";
+    }
+
+  })
+</script>

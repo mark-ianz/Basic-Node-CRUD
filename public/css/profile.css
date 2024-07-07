@@ -1,0 +1,102 @@
+.section {
+  border: solid 1px gray;
+  border-radius: 8px;
+  padding: 1em;
+  flex-direction: row;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 2em;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: solid 1px gray;
+  border-radius: 8px;
+  padding: 1em;
+}
+
+.card__img--container {
+  background-color: black;
+  padding: 1.2em;
+  border-radius: 50%;
+  border: solid 1px gray;
+  display: flex;
+  align-items: center;
+}
+
+.card__img {
+  color: white;
+  width: 40px;
+  aspect-ratio: 1;
+}
+
+.card__user-info__container {
+  display: flex;
+  width: 100%;
+}
+
+.card__about-user {
+  flex-grow: 1;
+  margin-left: 1em;
+  display: flex;
+  align-items: center;
+}
+
+.card__about-user p {
+  font-size: 2em;
+}
+
+.card__info--wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: .5em;
+}
+
+.card__description--container {
+  margin-top: 1em;
+}
+
+.card__option--wrapper {
+  display: flex;
+  position: relative;
+  align-items: start;
+}
+
+.card__option--button {
+  display: flex;
+  aspect-ratio: 1;
+  background: none;
+  border: solid 1px gray;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.card__option--img {
+  width: 2em;
+}
+
+.card__option--dropdown {
+  position: absolute;
+  border: solid 1px gray;
+  border-radius: 8px;
+  right: 120%;
+  background-color: black;
+  padding: .5em;
+  visibility: hidden;
+}
+
+.dropdown__list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  width: 10vw;
+  min-width: 100px;
+  align-items: center;
+}
+
+.dropdown__list--item {
+  font-size: 1.2em;
+  padding: .3em;
+}

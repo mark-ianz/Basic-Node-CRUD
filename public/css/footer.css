@@ -1,0 +1,62 @@
+.footer {
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em 0;
+  flex-direction: column;
+  font-size: .8em;
+  color: #686868;
+  width: 100%;
+  margin-top: 3em;
+}
+
+.footer__social--list {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+.footer__social--item {
+  margin: 0 .5em;
+}
+
+.footer__social--img {
+  width: 1.5em;
+  filter: invert(20%) sepia(0%) saturate(81%) hue-rotate(188deg) brightness(91%) contrast(83%);
+  transition: 150ms;
+}
+
+/* scale down the x logo */
+.social__x--img {
+  transform: scale(.8);
+}
+
+.footer__nav--list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.footer__nav--item {
+  padding: .2em .5em;
+  margin: .5em;
+}
+
+.footer__nav--link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* color effect when hovering socials */
+.footer__social--link:hover .social__fb--img {
+  filter: invert(25%) sepia(61%) saturate(3874%) hue-rotate(215deg) brightness(103%) contrast(104%);
+}
+
+.footer__social--link:hover .social__ig--img {
+  filter: invert(55%) sepia(64%) saturate(4650%) hue-rotate(324deg) brightness(87%) contrast(112%);
+}
+
+.footer__social--link:hover .social__x--img {
+  filter: invert(100%);
+}

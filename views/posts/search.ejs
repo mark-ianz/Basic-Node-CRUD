@@ -1,0 +1,56 @@
+<div class="post__feed">
+  <% if (data.length > 0) { %>
+    <% data.forEach ((post)=> { %>
+    <div class="post__feed--item">
+      <a href="/posts/<%= post._id %>" class="post__feed--link"></a>
+      <div class="post__feed--meta">
+        <a href="/profile/<%= post.authorID %>" class="post__feed--meta--author-pf--wrapper">
+          <img src="img/venom.jpg" alt="Author Profile" class="post__feed--meta--author-pf">
+        </a>
+        <a href="/profile/<%= post.authorID %>" class="post__feed--meta--author-name"><%=post.authorID%></a>
+        <p class="post__feed--meta--date-posted">
+          <% const dates = post.createdAtDifferences;%>
+          <% if (dates.years !== 0) { %>
+            <%= dates.years > 1 ? `${dates.years} years` : `${dates.years} year` %> ago
+          <% } else if (dates.months !== 0) { %>
+            <%= dates.months > 1 ? `${dates.months} months` : `${dates.months} month` %> ago
+          <% } else if (dates.days !== 0) { %>
+            <%= dates.days > 1 ? `${dates.days} days` : `${dates.days} day` %> ago
+          <% } else if (dates.hours !== 0) {%>
+            <%= dates.hours > 1 ? `${dates.hours} hours` : `${dates.hours} hour` %> ago
+          <% } else if (dates.minutes !== 0) { %>
+            <%= dates.minutes > 1 ? `${dates.minutes} minutes` : `${dates.minutes} minute` %> ago
+          <% } else { %>
+            Just now
+          <% } %>
+        </p>
+      </div>
+      <div class="post__feed--item--content">
+        <p class="post__feed--title"><%= post.title %></p>
+        <% if (post.imgURL) { %>
+        <img src="<%= post.imgURL %>" alt="post image" class="post__feed--img" />
+        <% } %> <% if (post.desc && !post.imgURL) { %>
+        <p class="post__feed--desc"><%= post.desc %></p>
+        <% } %>
+      </div>
+      <div class="post__feed--social-buttons">
+        <div class="social-buttons__container social-buttons__like--container">
+          <img src="img/heart-svgrepo-com.svg" class="social-buttons__like--img" alt="Like Image">
+          <p>Like</p>
+        </div>
+        <div class="social-buttons__container social-buttons__comment--container">
+          <img src="img/comment-svgrepo-com.svg" class="social-buttons__comment--img" alt="Comment Image">
+          <p>Comment</p>
+        </div>
+        <div class="social-buttons__container social-buttons__share--container">
+          <img src="img/share-svgrepo-com.svg" class="social-buttons__share--img" alt="Share Image">
+          <p>Share</p>
+        </div>
+      </div>
+    </div>
+    <hr class="post__feed--hr" />
+    <% }) %>
+  <% } else { %>
+    <p>No posts found. <a href="/posts/create" style="color: white;">Create one</a></p>
+  <% } %>
+</div>

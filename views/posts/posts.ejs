@@ -1,0 +1,9 @@
+<div class="post__feed">
+  <% if (postData.length > 0) { %>
+    <% postData.forEach ((post)=> { %>
+      <%- include ("../partials/postCard.ejs", {post}) %>
+    <% }) %>
+  <% } else { %>
+    <p>No posts found. <a href="/posts/create" style="color: white;">Create one</a></p>
+  <% } %>
+</div>
